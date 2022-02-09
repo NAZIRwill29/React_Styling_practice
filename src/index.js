@@ -8,9 +8,29 @@
 import React from "react";
 import ReactDOM from "react-dom";
 
+let text = "";
+// get current time
+const currentTime = new Date().getHours();
+//const currentTime = 13;
+const customStyle = {
+  color: "blue"
+};
+
+if (currentTime < 12) {
+  text = "Good Morning";
+  customStyle.color = "red";
+} else if (currentTime < 20) {
+  text = "Good Afternoon";
+  customStyle.color = "green";
+} else {
+  text = "Good Night";
+}
+
 ReactDOM.render(
   <div>
-    <h1>hello</h1>
+    <h1 className="heading" style={customStyle}>
+      {text}
+    </h1>
   </div>,
   document.querySelector("#root")
 );
